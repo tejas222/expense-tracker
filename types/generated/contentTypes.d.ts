@@ -379,6 +379,11 @@ export interface ApiExpenseExpense extends Schema.CollectionType {
     amount: Attribute.BigInteger;
     timestamp: Attribute.DateTime;
     description: Attribute.Text;
+    users_permissions_user: Attribute.Relation<
+      'api::expense.expense',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -730,7 +735,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -758,6 +762,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'manyToOne',
       'plugin::users-permissions.role'
+    >;
+    expenses: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::expense.expense'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
