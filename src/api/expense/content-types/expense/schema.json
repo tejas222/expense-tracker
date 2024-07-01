@@ -4,7 +4,8 @@
   "info": {
     "singularName": "expense",
     "pluralName": "expenses",
-    "displayName": "Expense"
+    "displayName": "Expense",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,9 @@
     },
     "timestamp": {
       "type": "datetime"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
